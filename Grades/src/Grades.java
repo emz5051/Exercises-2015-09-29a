@@ -35,7 +35,14 @@ public class Grades {
         
         // Prompt the user to enter a grade
         System.out.print("Enter a grade: ");
-        int grade = keyboard.nextInt();
+        
+        int grade;
+        try {
+            grade = keyboard.nextInt();
+        } catch (Exception e) {
+            System.out.println("Not an integer");
+            continue;
+        }
         
         // Check the user input for a valid value
         if (grade >= 0 && grade <= 100) {
@@ -58,8 +65,13 @@ public class Grades {
     // print the total points entered by the user
     System.out.println("Total is: " + total);
     
-    // print the average of the grades entered by the user
-    System.out.println("Grade average: " + (float) total / numOfGrades);
+    
+    if (numOfGrades == 0) {
+       System.out.println("No grades entered"); 
+    } else {
+        // print the average of the grades entered by the user
+        System.out.println("Grade average: " + (float) total / numOfGrades);
+    }
 
   }
 
