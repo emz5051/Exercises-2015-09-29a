@@ -27,10 +27,19 @@ public class Grades {
   public static void main(String[] args) {
 
     Scanner keyboard = new Scanner(System.in);
+    
+    double total = 0;
 
-    System.out.print("Enter a grade: ");
-    int grade = keyboard.nextInt();
-    System.out.println("You entered: " + grade);
+    for (;;) {
+        System.out.print("Enter a grade: ");
+        int grade = keyboard.nextInt();
+        if (grade == -1) {
+            break;
+        }
+        total += grade;
+    }
+    
+    System.out.println("Total is: " + total);
 
   }
 
