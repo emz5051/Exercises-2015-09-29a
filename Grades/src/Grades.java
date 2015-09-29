@@ -29,17 +29,37 @@ public class Grades {
     Scanner keyboard = new Scanner(System.in);
     
     double total = 0;
+    int numOfGrades = 0;
 
     for (;;) {
+        
+        // Prompt the user to enter a grade
         System.out.print("Enter a grade: ");
         int grade = keyboard.nextInt();
-        if (grade == -1) {
+        
+        // Check the user input for a valid value
+        if (grade >= 0 && grade <= 100) {
+            total += grade;
+            numOfGrades++;
+        }
+        else if (grade != -1) {
+            // Prompt user their value is out of range
+            System.out.println("Grade must be between 0 and 100");
+        }
+        else {
+            // user typed the exit value
             break;
         }
-        total += grade;
     }
     
+    // print number of grades entered by user
+    System.out.println("You entered: " + numOfGrades + " grades.");
+    
+    // print the total points entered by the user
     System.out.println("Total is: " + total);
+    
+    // print the average of the grades entered by the user
+    System.out.println("Grade average: " + (float) total / numOfGrades);
 
   }
 
